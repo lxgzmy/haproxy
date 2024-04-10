@@ -1,0 +1,16 @@
+version: "3"
+services:
+  haproxy:
+    image: haproxy:1.8
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    ports:
+      - 80:80
+  backend1:
+    image: nginx:alpine
+    volumes:
+      - ./html1:/usr/share/nginx/html
+  backend2:
+    image: nginx:alpine
+    volumes:
+      - ./html2:/usr/share/nginx/html
